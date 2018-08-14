@@ -143,7 +143,7 @@ function loadArticles() {
     .then(result => {
       // REVIEW: result.rows is an array of objects that PostgreSQL returns as a response to a query.
       // If there is nothing on the table, then result.rows[0] will be undefined, which will make count undefined. parseInt(undefined) returns NaN. !NaN evaluates to true.
-      // Therefore, if there is nothing on the table, line 158 will evaluate to true and enter into the code block.
+      // Therefore, if there is nothing on the table, line below will evaluate to true and enter into the code block.
       if (!parseInt(result.rows[0].count)) {
         fs.readFile('./public/data/hackerIpsum.json', 'utf8', (err, fd) => {
           JSON.parse(fd).forEach(ele => {
